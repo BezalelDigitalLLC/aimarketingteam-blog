@@ -18,5 +18,8 @@
     "title": "Bezalel Digital Knowledge Base",
     "description": "Guides and tutorials for modern digital marketing.",
     "baseUrl": "https://docs.bezaleldigital.com"
+  },
+  "redirects": {
+    "services": "https://www.carlosvargas.com/strategy-call"
   }
 }

@@ -1,0 +1,7 @@
+---
+import blogConfig from '../../blog.config.json';
+
+const redirectUrl = blogConfig.redirects?.services || blogConfig.agency.url;
+
+return Astro.redirect(redirectUrl, 302);
+---
