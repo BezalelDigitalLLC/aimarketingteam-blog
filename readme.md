@@ -1,4 +1,4 @@
-# AI Marketing Team Blog
+# Bezalel Digital Knowledge Base
 
 Guides and tutorials for modern digital marketing — auto-published from client work by the AI Marketing Team agent system.
 
