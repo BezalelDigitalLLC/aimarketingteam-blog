@@ -328,19 +328,3 @@ We do this for coaches, consultants, and service-based businesses every week. If
 
 *Carlos Vargas is the founder of Bezalel Digital, a technology consulting firm that helps entrepreneurs and small business owners build high-converting funnels, automate their marketing, and scale with the right technology stack. He works at the intersection of AI development, funnel engineering, and business strategy.*
 
----
-
-## Repurposing Plan
-
-This blog post can generate the following derivative content:
-
-1. **Social --- LinkedIn article** (800 words): Condensed version focusing on the 7-email framework overview table with a CTA to the full post
-2. **Social --- Instagram carousel** (10 slides): "The 7 Emails Every Welcome Sequence Needs" --- one email per slide with subject line formula and one-line purpose
-3. **Social --- Twitter/X thread** (10 tweets): Thread version of the framework with one email per tweet, each including the subject line formula and key insight
-4. **Social --- Facebook post**: Pain agitation angle --- "Your lead magnet captured the email. Now what? Most businesses waste the next 10 days. Here is what to do instead." Link to full post.
-5. **Social --- LinkedIn post** (short): "3 Mistakes That Kill Welcome Sequences" --- pull the common mistakes section as a standalone post
-6. **Email newsletter excerpt**: Introduction + framework table + CTA to read the full post
-7. **Ad hooks** (hand off to Sophia): 5 hook variations derived from the introduction and the "most businesses completely waste it" angle for Meta Ads
-8. **Podcast talking points**: 15-minute episode outline covering why welcome sequences matter, the 7-email framework, and the most common mistakes
-9. **Quote graphics** (3-5): Pull key statements for visual cards --- "Your welcome email sequence is the single highest-leverage asset in your entire funnel." / "If the free stuff is this good, what does the paid stuff look like?" / "People buy when they feel free to say no."
-10. **Lead magnet section**: The framework table and tagging strategy can be expanded into a downloadable "7-Email Welcome Sequence Blueprint" one-page PDF

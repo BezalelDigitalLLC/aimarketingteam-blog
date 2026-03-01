@@ -272,17 +272,3 @@ Or, if you want to assess your overall technology readiness before jumping into 
 
 *Disclaimer: Interface details may vary. Steps reflect the process as of early 2026. No income guarantees are made or implied. Your results depend on your business, audience, and implementation.*
 
----
-
-## Repurposing Plan
-
-This tutorial blog post can generate the following derivative content:
-
-1. **Social -- LinkedIn post** (400 words): "The one booking page setting that most people skip" -- focus on the pre-call qualification questions and why they improve call quality
-2. **Social -- Instagram carousel** (8 slides): "How to Build a Strategy Call Booking Page That Converts" -- one slide per major step, visual walkthrough
-3. **Social -- Twitter/X thread** (8 tweets): Thread version of the full process, one tweet per step with the key configuration tip for each
-4. **Social -- Facebook post**: "Why your strategy call no-show rate is 40%" -- pull the reminder email section with a CTA to read the full tutorial
-5. **Email newsletter excerpt**: Introduction paragraph + the "Common Issues" section as a quick-reference guide with link to full post
-6. **Ad hooks** (hand off to Sophia): 3 hook variations -- "Your leads downloaded the freebie. Now what?" / "A booking page is not a calendar link on a thank-you page." / "The configuration that drops no-shows from 40% to 15%."
-7. **Short-form video script** (60 seconds): Walk through the five steps on screen with a voiceover -- good for Instagram Reels or TikTok
-8. **Quote graphics** (3): "A booking page is where leads become conversations." / "Every additional step between 'I want to book' and 'I booked' reduces conversions." / "Reminders reduce no-show rates from 40% to 15%."

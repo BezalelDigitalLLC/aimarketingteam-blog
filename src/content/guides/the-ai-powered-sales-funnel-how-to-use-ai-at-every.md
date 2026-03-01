@@ -265,19 +265,3 @@ I work with entrepreneurs, coaches, consultants, and small business owners every
 
 *Carlos Vargas is the founder of Bezalel Digital, a technology consulting firm that helps entrepreneurs and small business owners implement AI, build high-converting funnels, and scale with the right technology stack. He works at the intersection of AI development, funnel engineering, and business strategy.*
 
----
-
-## Repurposing Plan
-
-This blog post can generate the following derivative content:
-
-1. **Social — LinkedIn article** (800 words): Condensed version focusing on the 5 stages framework with a CTA to the full post
-2. **Social — Instagram carousel** (10 slides): "5 Ways AI Supercharges Your Sales Funnel" — one stage per slide with a hook and key takeaway
-3. **Social — Twitter/X thread** (12 tweets): Thread version of the 5 stages with one tool recommendation per stage
-4. **Social — Facebook post**: Case study excerpt (Sarah's story) with a link to the full post
-5. **Social — LinkedIn post** (short): "3 Mistakes to Avoid When Adding AI to Your Funnel" — pull the mistakes section as a standalone post
-6. **Email newsletter excerpt**: Introduction + tech stack table + CTA to read the full post and take the scorecard
-7. **Ad hooks** (hand off to Sophia): 5 hook variations derived from the introduction and case study for Meta Ads
-8. **Podcast talking points**: 15-minute episode outline covering the 5 stages and the case study with listener CTA
-9. **Quote graphics** (3-5): Pull key statements for visual cards — "AI is a phenomenal first-draft machine. It is a terrible final-draft machine." / "Build the simple version first. Then layer in AI." / "The businesses that figure out how to embed AI into their funnel operations right now are going to have an almost unfair advantage."
-10. **Lead magnet section**: The tech stack table and cost breakdown can be expanded into a downloadable "AI Funnel Tech Stack Cheat Sheet" PDF

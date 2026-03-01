@@ -250,19 +250,3 @@ Stop guessing. Start tracking.
 
 *Carlos Vargas is the founder of Bezalel Digital, a technology consulting firm that helps entrepreneurs and small business owners implement AI, build high-converting funnels, and scale with the right technology stack. He works at the intersection of AI development, funnel engineering, and business strategy.*
 
----
-
-## Repurposing Plan
-
-This blog post can generate the following derivative content:
-
-1. **Social — LinkedIn post** (short): "5 UTM parameters, explained in plain English" — pull the 5-parameter section as a standalone post with a CTA to the full guide
-2. **Social — Instagram carousel** (8 slides): "UTM Tracking in 60 Seconds" — one slide per parameter plus naming convention rules, channel examples, and CTA
-3. **Social — Twitter/X thread** (10 tweets): Thread version of the full guide — one tweet per section with code-formatted UTM examples
-4. **Social — Facebook post**: Pull the "Common Mistakes" section as a standalone value post with a link to the full guide
-5. **Social — LinkedIn article** (600 words): Condensed version focusing on the naming convention and channel-specific templates
-6. **Email newsletter excerpt**: Introduction + the 5 parameters + UTM tracker spreadsheet section + CTA to read the full post
-7. **Lead magnet expansion**: The UTM tracker spreadsheet template can be turned into a downloadable Google Sheets template with pre-built formulas and example data
-8. **YouTube script**: 8-to-10-minute screen-share tutorial walking through the Campaign URL Builder and GA4 reports, referencing this post in the description
-9. **Quote graphics** (3): "Imperfect tracking is infinitely better than no tracking." / "The difference between guessing and knowing is how you make better decisions about where to spend your next dollar." / "This takes 30 minutes to set up and saves you thousands in wasted ad spend."
-10. **Ad hooks** (hand off to Sophia): 5 hook variations derived from the introduction and mistakes section for Meta Ads retargeting blog readers
