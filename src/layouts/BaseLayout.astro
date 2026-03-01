@@ -1,0 +1,39 @@
+---
+import Navigation from '../components/Navigation.astro';
+import blogConfig from '../../blog.config.json';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteTitle = title
+  ? `${title} | ${blogConfig.site.title}`
+  : blogConfig.site.title;
+const siteDescription = description || blogConfig.site.description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteDescription} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{siteTitle}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navigation />
+    <main class="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
+      <slot />
+    </main>
+    <footer class="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+      <p>&copy; {new Date().getFullYear()} {blogConfig.agency.name}. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

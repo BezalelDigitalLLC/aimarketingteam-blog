@@ -1,0 +1,20 @@
+{
+  "author": {
+    "name": "Carlos E. Vargas",
+    "bio": "Digital marketing strategist helping businesses grow through data-driven campaigns, AI-powered automation, and high-converting funnels.",
+    "avatar": "/images/author-avatar.jpg",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/carlosevargas",
+      "twitter": "https://twitter.com/carlosevargas"
+    }
+  },
+  "agency": {
+    "name": "Bezalel Digital LLC",
+    "url": "https://bezaleldigital.com"
+  },
+  "site": {
+    "title": "AI Marketing Team Blog",
+    "description": "Guides and tutorials for modern digital marketing.",
+    "baseUrl": "https://docs.bezaleldigital.com"
+  }
+}

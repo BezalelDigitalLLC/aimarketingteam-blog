@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const guides = await getCollection('guides');
+const tutorials = await getCollection('tutorials');
+
+const allArticles = [
+  ...guides.map((g) => ({ ...g, collection: 'guide' as const })),
+  ...tutorials.map((t) => ({ ...t, collection: 'tutorial' as const })),
+].sort((a, b) => {
+  const dateA = new Date(a.data.publishedAt).getTime();
+  const dateB = new Date(b.data.publishedAt).getTime();
+  return dateB - dateA;
+});
+---
+
+<BaseLayout>
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-slate-900 mb-2">All Articles</h1>
+    <p class="text-slate-600">Guides and tutorials for modern digital marketing.</p>
+  </div>
+
+  {allArticles.length === 0 ? (
+    <p class="text-slate-500 text-center py-12">No articles published yet. Check back soon.</p>
+  ) : (
+    <div class="grid gap-4">
+      {allArticles.map((article) => (
+        <ArticleCard
+          title={article.data.title}
+          description={article.data.description}
+          slug={article.slug}
+          type={article.collection}
+          tags={article.data.tags}
+          category={article.data.category}
+          publishedAt={article.data.publishedAt}
+        />
+      ))}
+    </div>
+  )}
+</BaseLayout>
