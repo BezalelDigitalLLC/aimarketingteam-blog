@@ -7,7 +7,7 @@ tags: ["AI", "funnels", "automation", "optimization"]
 category: "ai"
 platform: "ClickFunnels"
 language: "en"
-image: "ai-powered-sales-funnel.png"
+image: "ai-powered-sales-funnel.jpg"
 publishedAt: "2026-03-01T20:24:02.790Z"
 ---
 

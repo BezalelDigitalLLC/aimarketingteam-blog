@@ -6,7 +6,7 @@ type: "tutorial"
 tags: ["security", "2FA", "password-manager", "cybersecurity"]
 category: "technology"
 language: "en"
-image: "entrepreneur-security-checklist.png"
+image: "entrepreneur-security-checklist.jpg"
 publishedAt: "2026-03-01T20:24:57.037Z"
 ---
 

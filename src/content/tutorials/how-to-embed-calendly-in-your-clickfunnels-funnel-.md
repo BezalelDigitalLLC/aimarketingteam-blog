@@ -7,7 +7,7 @@ tags: ["Calendly", "ClickFunnels", "booking", "scheduling"]
 category: "funnel-design"
 platform: "ClickFunnels"
 language: "en"
-image: "calendly-clickfunnels-embed.png"
+image: "calendly-clickfunnels-embed.jpg"
 publishedAt: "2026-03-01T20:24:51.268Z"
 ---
 

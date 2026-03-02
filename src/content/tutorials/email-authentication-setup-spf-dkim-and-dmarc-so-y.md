@@ -6,7 +6,7 @@ type: "tutorial"
 tags: ["email", "SPF", "DKIM", "DMARC", "deliverability"]
 category: "email-marketing"
 language: "en"
-image: "email-authentication-spf-dkim-dmarc.png"
+image: "email-authentication-spf-dkim-dmarc.jpg"
 publishedAt: "2026-03-01T20:24:33.475Z"
 ---
 

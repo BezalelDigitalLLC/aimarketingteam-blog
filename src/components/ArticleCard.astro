@@ -28,42 +28,53 @@ const thumbnail = image && images[`/src/assets/blog/${image}`] ? (await images[`
 ---
 
 {featured ? (
-  <!-- Featured Card: full-width horizontal layout -->
-  <article class="border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all bg-white">
-    <div class="grid md:grid-cols-2">
+  <!-- Featured Card: full-width image with text overlay -->
+  <article class="group rounded-xl overflow-hidden hover:shadow-lg transition-all relative">
+    <a href={href} class="block">
       {thumbnail ? (
-        <a href={href} class="block overflow-hidden">
+        <div class="overflow-hidden">
           <Image
             src={thumbnail}
             alt={title}
-            width={800}
-            height={450}
-            class="w-full h-56 md:h-full object-cover hover:scale-105 transition-transform duration-300"
+            width={1200}
+            height={500}
+            class="w-full h-64 sm:h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
           />
-        </a>
+        </div>
       ) : (
-        <a href={href} class="block bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center h-56 md:h-full">
-          <span class="text-4xl text-slate-300">{typeLabel === 'Guide' ? '📘' : '🛠️'}</span>
-        </a>
+        <div class="bg-gradient-to-br from-blue-600 to-slate-800 h-64 sm:h-80 md:h-96 flex items-center justify-center">
+          <span class="text-6xl opacity-30">{typeLabel === 'Guide' ? '📘' : '🛠️'}</span>
+        </div>
       )}
-      <div class="p-6 md:p-8 flex flex-col justify-center">
-        <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-          <span class="inline-block bg-blue-100 text-blue-700 rounded px-2 py-0.5 font-semibold uppercase tracking-wide">
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+      <!-- Text content over image -->
+      <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+        <div class="flex items-center gap-2 text-xs mb-3">
+          <span class="inline-block bg-blue-500 text-white rounded px-2 py-0.5 font-semibold uppercase tracking-wide">
             Featured
           </span>
-          <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
+          <span class="inline-block bg-white/20 text-white rounded px-1.5 py-0.5 font-medium uppercase tracking-wide backdrop-blur-sm">
             {typeLabel}
           </span>
-          <span>&middot;</span>
-          <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+          <span class="text-white/70">&middot;</span>
+          <time datetime={publishedAt.toISOString()} class="text-white/70">{formattedDate}</time>
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 mb-3">
-          <a href={href} class="hover:text-blue-600 transition-colors">{title}</a>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-blue-200 transition-colors">
+          {title}
         </h2>
-        <p class="text-slate-600 mb-4 leading-relaxed">{description}</p>
-        {tags.length > 0 && <TagList tags={tags} />}
+        <p class="text-white/80 mb-3 leading-relaxed max-w-3xl line-clamp-2">{description}</p>
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
+              <span class="inline-block bg-white/15 text-white/90 text-xs font-medium rounded px-2 py-0.5 backdrop-blur-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </a>
   </article>
 ) : (
   <!-- Standard Card: vertical layout for grid -->

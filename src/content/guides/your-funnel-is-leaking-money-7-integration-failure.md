@@ -7,7 +7,7 @@ tags: ["funnels", "ClickFunnels", "integrations", "troubleshooting"]
 category: "funnel-design"
 platform: "ClickFunnels"
 language: "en"
-image: "funnel-integration-failures.png"
+image: "funnel-integration-failures.jpg"
 publishedAt: "2026-03-01T20:23:57.510Z"
 ---
 

@@ -7,7 +7,7 @@ tags: ["Meta-Pixel", "GTM", "ClickFunnels", "Facebook-Ads", "tracking"]
 category: "analytics"
 platform: "ClickFunnels"
 language: "en"
-image: "meta-pixel-clickfunnels-gtm.png"
+image: "meta-pixel-clickfunnels-gtm.jpg"
 publishedAt: "2026-03-01T20:24:30.425Z"
 ---
 

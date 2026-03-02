@@ -82,19 +82,17 @@ const categories = [...new Set(allArticles.map((a) => a.data.category))].sort();
       data-type={featured.collection}
       data-category={featured.data.category}
     >
-      <a href={`/${featured.collection}s/${featured.slug}`} class="group block">
-        <ArticleCard
-          title={featured.data.title}
-          description={featured.data.description}
-          slug={featured.slug}
-          type={featured.collection}
-          tags={featured.data.tags}
-          category={featured.data.category}
-          publishedAt={featured.data.publishedAt}
-          image={featured.data.image}
-          featured={true}
-        />
-      </a>
+      <ArticleCard
+        title={featured.data.title}
+        description={featured.data.description}
+        slug={featured.slug}
+        type={featured.collection}
+        tags={featured.data.tags}
+        category={featured.data.category}
+        publishedAt={featured.data.publishedAt}
+        image={featured.data.image}
+        featured={true}
+      />
     </div>
   )}
 
