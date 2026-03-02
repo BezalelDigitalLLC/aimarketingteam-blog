@@ -6,6 +6,7 @@ type: "guide"
 tags: ["tech-stack", "coaches", "tools", "budget"]
 category: "technology"
 language: "en"
+image: "tech-stack-blueprint.png"
 publishedAt: "2026-03-01T20:24:00.214Z"
 ---
 

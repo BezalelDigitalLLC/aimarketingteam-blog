@@ -6,6 +6,7 @@ type: "tutorial"
 tags: ["email", "sequences", "automation", "lead-nurture"]
 category: "email-marketing"
 language: "en"
+image: "welcome-email-sequence.png"
 publishedAt: "2026-03-01T20:24:36.376Z"
 ---
 

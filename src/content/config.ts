@@ -10,6 +10,7 @@ const articleSchema = z.object({
   platform: z.string().optional(),
   language: z.enum(['en', 'es']).default('en'),
   publishedAt: z.coerce.date(),
+  image: z.string().optional(),
 });
 
 const guides = defineCollection({

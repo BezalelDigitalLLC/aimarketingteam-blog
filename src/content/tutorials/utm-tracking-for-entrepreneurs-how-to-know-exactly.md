@@ -6,6 +6,7 @@ type: "tutorial"
 tags: ["UTM", "analytics", "tracking", "Google-Analytics"]
 category: "analytics"
 language: "en"
+image: "utm-tracking-guide.png"
 publishedAt: "2026-03-01T20:24:54.220Z"
 ---
 

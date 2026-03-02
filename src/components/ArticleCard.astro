@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import TagList from './TagList.astro';
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
   tags: string[];
   category: string;
   publishedAt: Date;
+  image?: string;
 }
 
-const { title, description, slug, type, tags, category, publishedAt } = Astro.props;
+const { title, description, slug, type, tags, category, publishedAt, image } = Astro.props;
 const href = `/${type}s/${slug}`;
 const formattedDate = publishedAt.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -19,21 +21,31 @@ const formattedDate = publishedAt.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 const typeLabel = type === 'guide' ? 'Guide' : 'Tutorial';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog/*.{png,jpg,jpeg,webp}');
+const thumbnail = image && images[`/src/assets/blog/${image}`] ? (await images[`/src/assets/blog/${image}`]()).default : null;
 ---
 
-<article class="border border-slate-200 rounded-lg p-5 hover:border-slate-400 transition-colors bg-white">
-  <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
-    <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
-      {typeLabel}
-    </span>
-    <span>&middot;</span>
-    <span>{category}</span>
-    <span>&middot;</span>
-    <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+<article class="border border-slate-200 rounded-lg overflow-hidden hover:border-slate-400 transition-colors bg-white">
+  {thumbnail && (
+    <a href={href} class="block">
+      <Image src={thumbnail} alt={title} width={600} height={338} class="w-full h-48 object-cover" />
+    </a>
+  )}
+  <div class="p-5">
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+      <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
+        {typeLabel}
+      </span>
+      <span>&middot;</span>
+      <span>{category}</span>
+      <span>&middot;</span>
+      <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+    </div>
+    <h2 class="text-lg font-semibold mb-2">
+      <a href={href} class="text-slate-900 hover:text-blue-600">{title}</a>
+    </h2>
+    <p class="text-slate-600 text-sm mb-3">{description}</p>
+    {tags.length > 0 && <TagList tags={tags} />}
   </div>
-  <h2 class="text-lg font-semibold mb-2">
-    <a href={href} class="text-slate-900 hover:text-blue-600">{title}</a>
-  </h2>
-  <p class="text-slate-600 text-sm mb-3">{description}</p>
-  {tags.length > 0 && <TagList tags={tags} />}
 </article>

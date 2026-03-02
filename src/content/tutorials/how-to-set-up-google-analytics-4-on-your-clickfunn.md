@@ -7,6 +7,7 @@ tags: ["GA4", "analytics", "ClickFunnels", "tracking"]
 category: "analytics"
 platform: "ClickFunnels"
 language: "en"
+image: "ga4-clickfunnels-setup.png"
 publishedAt: "2026-03-01T20:24:27.247Z"
 ---
 

@@ -6,6 +6,7 @@ type: "guide"
 tags: ["AI", "implementation", "small-business", "roadmap"]
 category: "ai"
 language: "en"
+image: "ai-implementation-roadmap.png"
 publishedAt: "2026-03-01T20:23:54.496Z"
 ---
 

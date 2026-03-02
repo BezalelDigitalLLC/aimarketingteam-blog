@@ -7,6 +7,7 @@ tags: ["Stripe", "ClickFunnels", "payments", "integrations"]
 category: "funnel-design"
 platform: "ClickFunnels"
 language: "en"
+image: "stripe-clickfunnels-setup.png"
 publishedAt: "2026-03-01T20:24:48.314Z"
 ---
 
