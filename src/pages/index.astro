@@ -14,30 +14,200 @@ const allArticles = [
   const dateB = new Date(b.data.publishedAt).getTime();
   return dateB - dateA;
 });
+
+const featured = allArticles[0];
+const rest = allArticles.slice(1);
+
+const categories = [...new Set(allArticles.map((a) => a.data.category))].sort();
 ---
 
 <BaseLayout>
+  <!-- Search & Filter Bar -->
   <div class="mb-8">
-    <h1 class="text-3xl font-bold text-slate-900 mb-2">All Articles</h1>
-    <p class="text-slate-600">Guides and tutorials for modern digital marketing.</p>
+    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-6">
+      <div>
+        <h1 class="text-3xl font-bold text-slate-900 mb-1">Knowledge Base</h1>
+        <p class="text-slate-500 text-sm">{allArticles.length} guides and tutorials for modern digital marketing.</p>
+      </div>
+      <div class="relative w-full sm:w-72">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search articles..."
+          class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+        />
+      </div>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="flex flex-wrap gap-2" id="filter-pills">
+      <button data-filter="all" class="filter-pill active px-3 py-1.5 rounded-full text-sm font-medium transition-colors">
+        All
+      </button>
+      <button data-filter="guide" class="filter-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors">
+        Guides
+      </button>
+      <button data-filter="tutorial" class="filter-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors">
+        Tutorials
+      </button>
+      <span class="w-px h-6 bg-slate-200 self-center mx-1"></span>
+      {categories.map((cat) => (
+        <button data-filter={`cat:${cat}`} class="filter-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors">
+          {cat.charAt(0).toUpperCase() + cat.slice(1)}
+        </button>
+      ))}
+    </div>
   </div>
 
-  {allArticles.length === 0 ? (
-    <p class="text-slate-500 text-center py-12">No articles published yet. Check back soon.</p>
-  ) : (
-    <div class="grid gap-4">
-      {allArticles.map((article) => (
+  <!-- No Results Message -->
+  <div id="no-results" class="hidden text-center py-16">
+    <svg class="mx-auto w-12 h-12 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+    <p class="text-slate-500 text-lg font-medium">No articles found</p>
+    <p class="text-slate-400 text-sm mt-1">Try a different search term or filter.</p>
+  </div>
+
+  <!-- Featured Article -->
+  {featured && (
+    <div
+      id="featured-article"
+      class="article-item mb-8"
+      data-title={featured.data.title.toLowerCase()}
+      data-description={featured.data.description.toLowerCase()}
+      data-tags={featured.data.tags.join(' ').toLowerCase()}
+      data-type={featured.collection}
+      data-category={featured.data.category}
+    >
+      <a href={`/${featured.collection}s/${featured.slug}`} class="group block">
         <ArticleCard
-          title={article.data.title}
-          description={article.data.description}
-          slug={article.slug}
-          type={article.collection}
-          tags={article.data.tags}
-          category={article.data.category}
-          publishedAt={article.data.publishedAt}
-          image={article.data.image}
+          title={featured.data.title}
+          description={featured.data.description}
+          slug={featured.slug}
+          type={featured.collection}
+          tags={featured.data.tags}
+          category={featured.data.category}
+          publishedAt={featured.data.publishedAt}
+          image={featured.data.image}
+          featured={true}
         />
+      </a>
+    </div>
+  )}
+
+  <!-- Article Grid -->
+  {rest.length > 0 && (
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="article-grid">
+      {rest.map((article) => (
+        <div
+          class="article-item"
+          data-title={article.data.title.toLowerCase()}
+          data-description={article.data.description.toLowerCase()}
+          data-tags={article.data.tags.join(' ').toLowerCase()}
+          data-type={article.collection}
+          data-category={article.data.category}
+        >
+          <ArticleCard
+            title={article.data.title}
+            description={article.data.description}
+            slug={article.slug}
+            type={article.collection}
+            tags={article.data.tags}
+            category={article.data.category}
+            publishedAt={article.data.publishedAt}
+            image={article.data.image}
+          />
+        </div>
       ))}
     </div>
   )}
 </BaseLayout>
+
+<style>
+  .filter-pill {
+    background-color: theme('colors.slate.100');
+    color: theme('colors.slate.600');
+  }
+  .filter-pill:hover {
+    background-color: theme('colors.slate.200');
+    color: theme('colors.slate.800');
+  }
+  .filter-pill.active {
+    background-color: theme('colors.blue.600');
+    color: white;
+  }
+  .article-item.hidden-by-filter,
+  .article-item.hidden-by-search {
+    display: none;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const articleItems = document.querySelectorAll('.article-item');
+  const noResults = document.getElementById('no-results');
+  const featuredEl = document.getElementById('featured-article');
+  const grid = document.getElementById('article-grid');
+
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    articleItems.forEach((item) => {
+      const el = item as HTMLElement;
+      const title = el.dataset.title || '';
+      const desc = el.dataset.description || '';
+      const tags = el.dataset.tags || '';
+      const type = el.dataset.type || '';
+      const category = el.dataset.category || '';
+
+      // Filter match
+      let filterMatch = true;
+      if (activeFilter === 'guide' || activeFilter === 'tutorial') {
+        filterMatch = type === activeFilter;
+      } else if (activeFilter.startsWith('cat:')) {
+        filterMatch = category === activeFilter.slice(4);
+      }
+
+      // Search match
+      const searchMatch = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
+
+      if (!filterMatch) {
+        el.classList.add('hidden-by-filter');
+      } else {
+        el.classList.remove('hidden-by-filter');
+      }
+
+      if (!searchMatch) {
+        el.classList.add('hidden-by-search');
+      } else {
+        el.classList.remove('hidden-by-search');
+      }
+
+      if (filterMatch && searchMatch) {
+        visibleCount++;
+      }
+    });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+  }
+
+  filterPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeFilter = (pill as HTMLElement).dataset.filter || 'all';
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+</script>

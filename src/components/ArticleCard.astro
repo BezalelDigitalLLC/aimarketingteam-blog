@@ -11,9 +11,10 @@ interface Props {
   category: string;
   publishedAt: Date;
   image?: string;
+  featured?: boolean;
 }
 
-const { title, description, slug, type, tags, category, publishedAt, image } = Astro.props;
+const { title, description, slug, type, tags, category, publishedAt, image, featured = false } = Astro.props;
 const href = `/${type}s/${slug}`;
 const formattedDate = publishedAt.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -26,26 +27,77 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog/*.
 const thumbnail = image && images[`/src/assets/blog/${image}`] ? (await images[`/src/assets/blog/${image}`]()).default : null;
 ---
 
-<article class="border border-slate-200 rounded-lg overflow-hidden hover:border-slate-400 transition-colors bg-white">
-  {thumbnail && (
-    <a href={href} class="block">
-      <Image src={thumbnail} alt={title} width={600} height={338} class="w-full h-48 object-cover" />
-    </a>
-  )}
-  <div class="p-5">
-    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
-      <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
-        {typeLabel}
-      </span>
-      <span>&middot;</span>
-      <span>{category}</span>
-      <span>&middot;</span>
-      <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+{featured ? (
+  <!-- Featured Card: full-width horizontal layout -->
+  <article class="border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all bg-white">
+    <div class="grid md:grid-cols-2">
+      {thumbnail ? (
+        <a href={href} class="block overflow-hidden">
+          <Image
+            src={thumbnail}
+            alt={title}
+            width={800}
+            height={450}
+            class="w-full h-56 md:h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </a>
+      ) : (
+        <a href={href} class="block bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center h-56 md:h-full">
+          <span class="text-4xl text-slate-300">{typeLabel === 'Guide' ? '📘' : '🛠️'}</span>
+        </a>
+      )}
+      <div class="p-6 md:p-8 flex flex-col justify-center">
+        <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+          <span class="inline-block bg-blue-100 text-blue-700 rounded px-2 py-0.5 font-semibold uppercase tracking-wide">
+            Featured
+          </span>
+          <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
+            {typeLabel}
+          </span>
+          <span>&middot;</span>
+          <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-3">
+          <a href={href} class="hover:text-blue-600 transition-colors">{title}</a>
+        </h2>
+        <p class="text-slate-600 mb-4 leading-relaxed">{description}</p>
+        {tags.length > 0 && <TagList tags={tags} />}
+      </div>
     </div>
-    <h2 class="text-lg font-semibold mb-2">
-      <a href={href} class="text-slate-900 hover:text-blue-600">{title}</a>
-    </h2>
-    <p class="text-slate-600 text-sm mb-3">{description}</p>
-    {tags.length > 0 && <TagList tags={tags} />}
-  </div>
-</article>
+  </article>
+) : (
+  <!-- Standard Card: vertical layout for grid -->
+  <article class="group border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-md transition-all bg-white h-full flex flex-col">
+    {thumbnail ? (
+      <a href={href} class="block overflow-hidden">
+        <Image
+          src={thumbnail}
+          alt={title}
+          width={600}
+          height={338}
+          class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </a>
+    ) : (
+      <a href={href} class="block bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center h-44">
+        <span class="text-3xl text-slate-300">{typeLabel === 'Guide' ? '📘' : '🛠️'}</span>
+      </a>
+    )}
+    <div class="p-5 flex flex-col flex-1">
+      <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+        <span class="inline-block bg-slate-100 text-slate-600 rounded px-1.5 py-0.5 font-medium uppercase tracking-wide">
+          {typeLabel}
+        </span>
+        <span>&middot;</span>
+        <span>{category}</span>
+        <span>&middot;</span>
+        <time datetime={publishedAt.toISOString()}>{formattedDate}</time>
+      </div>
+      <h2 class="text-base font-semibold mb-2 flex-grow">
+        <a href={href} class="text-slate-900 hover:text-blue-600 transition-colors">{title}</a>
+      </h2>
+      <p class="text-slate-500 text-sm mb-3 line-clamp-2">{description}</p>
+      {tags.length > 0 && <TagList tags={tags.slice(0, 3)} />}
+    </div>
+  </article>
+)}
